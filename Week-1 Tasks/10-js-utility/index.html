@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task10 JavaScript Utility Program</title>
+</head>
+
+<body>
+    <script>
+        // declaration of variables given(name,age,marks)
+        let userName = 'Pavithra';
+        let age = 19;
+        let sub1TamilMark = 99;
+        let sub2EnglishMark = 98;
+        let sub3MathsMark = 99;
+        let sub4ScienceMark = 100;
+        let sub5SocialMark = 91;
+        // calculation of total marks,avg and string length
+        let totalMarks = sub1TamilMark + sub2EnglishMark + sub3MathsMark + sub4ScienceMark + sub5SocialMark;
+        let averageMark = totalMarks / 5;
+        let userNameInUpperCase = userName.toUpperCase();
+        let userNameLength = userName.length;
+        // logging of results
+        console.log(`Username: ${userName}\nAge: ${age}\nMarks: Tamil=${sub1TamilMark}, English=${sub2EnglishMark}, Maths=${sub3MathsMark}, Science=${sub4ScienceMark}, Social=${sub5SocialMark}\nTotal Marks: ${totalMarks}\nAverage Mark: ${averageMark}\nUsername in Upper Case: ${userNameInUpperCase}\nUsername length: ${userNameLength}`);
+    </script>
+</body>
+
+</html>

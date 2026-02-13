@@ -1,0 +1,1 @@
+console.log("Hello! The message is loaded successfully!");

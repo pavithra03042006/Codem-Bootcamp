@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task9 Email String Analyzer Program</title>
+</head>
+
+<body>
+    <script>
+        // declaration
+        let emailId = 'pavithra@gmail.com';
+        // extraction of username and domain name
+        let userNameFromEmail = emailId.split("@")[0];
+        let domainNameFromEmail = emailId.split("@")[1];
+        // log of result
+        console.log(`Email Address: ${emailId}\nUsername part is ${userNameFromEmail}\nDomain name is ${domainNameFromEmail}`);
+    </script>
+</body>
+
+</html>
