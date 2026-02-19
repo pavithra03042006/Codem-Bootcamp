@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Eligibility Checker</title>
+</head>
+<body>
+    <h2>Travel Eligibility checker</h2>
+    <button onclick="checkTravelEligibility(20,'normal',true)">Normal Ticket</button>
+    <button onclick="checkTravelEligibility(15,'priority',false)">Priority Ticket</button>
+    <script>
+        function checkTravelEligibility(age,ticketType,hasID){
+            if(age<=0){
+                console.log("Invalid age");
+                return;
+            }
+            if(ticketType!=='normal' && ticketType!=='priority'){
+                console.log("Invalid Ticket type");
+                return;
+            }
+            let eligibility=false;
+            if(age>=18 && hasID) {
+                eligibility=true;
+            }
+            else if(age<18 && ticketType==='priority'){
+                console.log("Eligible with guardian");
+                eligibility=true;
+            }
+            else {
+                console.log("Not eligible");
+            }
+            let fare=200;
+            if(ticketType==='priority'){
+                fare+=50;
+            }
+        
+            console.log(`Age: ${age}\nEligibility: ${eligibility}\nFare: ${fare}\nTicket type: ${ticketType}\n`);
+
+            
+
+
+
+        }
+    </script>
+</body>
+</html>

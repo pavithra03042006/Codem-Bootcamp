@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Access System</title>
+</head>
+<body>
+    <h2>Login Access System</h2>
+    <button onclick="validateLogin('admin',1234)">Admin</button>
+    <button onclick="validateLogin('user',5678)">User</button>
+    <button onclick="validateLogin('guest',2222)">Guest</button>
+    <script>
+        function validateLogin(username,password) {
+           
+            if(username==='admin' && password===1234) {
+                console.log("Full Access granted");
+            }
+            
+            else if(username==='user' && password===5678){
+                console.log("Limited Access granted");
+            }
+        
+            else if(username==='guest' && password===2222) {
+                console.log("Read-only access");
+            }
+            else {
+                console.log("Invalid Credentials");
+            }
+        }
+    </script>
+</body>
+</html>
