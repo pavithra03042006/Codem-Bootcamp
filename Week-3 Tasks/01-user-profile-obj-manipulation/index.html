@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile Object Manipulation</title>
+</head>
+<body>
+    <script>
+        const userProfile={
+            name: 'Pavithra',
+            age:20,
+            email:'Pavithra@gmail.com',
+            isActive:true
+        };
+        userProfile.name='Pavithra';
+        userProfile.age='21';
+        userProfile['email']='Pavithra@gmail.com';
+        userProfile['isActive']=false;
+        userProfile['role']='Student';
+        console.log('Updated user profile:' , userProfile);
+        console.log("Name: ", userProfile.name);
+        console.log("Age: ", userProfile.age);
+        console.log("Email: ", userProfile.email);
+        console.log("Active Status: ", userProfile.isActive);
+        console.log("Role ", userProfile.role);
+    </script> 
+</body>
+</html>

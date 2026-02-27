@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation using Prevent Default</title>
+</head>
+<body>
+    <h2>Simple Form Validation</h2>
+    <form id="formId">
+        <input type="text" id="username" placeholder="Username">
+        <span id="userError"></span><br><br>
+        <input type="email" id="email" placeholder="Email">
+        <span id="emailError"></span><br><br>
+        <button type="submit">Submit</button>
+    </form>
+    <script>
+        let formEl=document.getElementById('formId');
+        formEl.addEventListener('submit',function(event) {
+            event.preventDefault();
+            let usernameEl=document.getElementById('username');
+            let emailEl=document.getElementById('email');
+            let userErrorEl=document.getElementById('userError');
+            let emailErrorEl=document.getElementById('emailError');
+            let isValid=true;
+            userErrorEl.textContent='';
+            emailErrorEl.textContent='';
+            if(usernameEl.value.trim() === ''){
+                userErrorEl.textContent='Username required';
+                isValid=false;
+            }
+            if(emailEl.value.trim()  === ''){
+                emailErrorEl.textContent='Email ID required';
+                isValid=false;
+            }
+            if(isValid) {
+                console.log("Form Submitted successfully");
+            }
+        });
+    </script>
+</body>
+</html>

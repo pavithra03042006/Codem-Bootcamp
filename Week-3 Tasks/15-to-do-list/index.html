@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive To-Do List with Validation</title>
+    <style>
+        body {
+            background-color: azure;
+        }
+        input {
+            padding: 5px;
+            margin-right: 10px;
+        }
+        button {
+            padding:5px;
+            cursor:pointer;
+            background-color: greenyellow;
+        }
+        li {
+            margin-bottom:8px;
+            padding:10px;
+            background-color:aquamarine;
+            border-radius: 5px;
+        }
+        li button {
+            margin-left:10px;
+            background-color:red;
+            color:white;
+            border-radius:3px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Simple To-Do List</h2>
+    <script>
+        let todoData=[];
+        let inputEl=document.createElement('input');
+        inputEl.placeholder='Enter Task:';
+        let addBtnEl=document.createElement('button');
+        addBtnEl.textContent='Add Task';
+        let ulEl=document.createElement('ul');
+        document.body.appendChild(inputEl);
+        document.body.appendChild(addBtnEl);
+        document.body.appendChild(ulEl);
+        addBtnEl.addEventListener('click', function(){
+            let taskText=inputEl.value.trim();
+            if(taskText===''){
+                alert('Task cannot be empty!');
+                return;
+            }
+            let taskObj={
+                id:Date.now(),
+                text:taskText,
+                completed:false
+                
+            };
+            todoData.push(taskObj);
+            let liEl=document.createElement('li');
+            liEl.textContent=taskObj.text;
+            liEl.addEventListener('click', function(){
+                taskObj.completed=!taskObj.completed;
+                liEl.style.textDecoration=taskObj.completed ? "line-through" : "none";
+            });
+            let removeBtnEl=document.createElement('button');
+            removeBtnEl.textContent='X';
+            removeBtnEl.addEventListener('click',function(){
+                ulEl.removeChild(liEl);
+                todoData=todoData.filter(t => t.id !== taskObj.id);
+            });
+            liEl.appendChild(removeBtnEl);
+            ulEl.appendChild(liEl);
+            inputEl.value='';
+        });
+        
+        
+        </script>
+</body>
+</html>

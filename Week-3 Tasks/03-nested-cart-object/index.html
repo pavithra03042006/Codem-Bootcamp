@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nested Shopping Cart Object</title>
+</head>
+<body>
+    <script>
+        let cart={
+            items: {
+                item1: {
+                    name:'Shirt',
+                    price:750,
+                    quantity:4
+                },
+                item2: {
+                    name:'Shoes',
+                    price:500,
+                    quantity:3
+                }
+            }
+        };
+        let total=0;
+        for(let key in cart.items) {
+            let item=cart.items[key];
+            total+=item.price * item.quantity;
+        }
+        console.log("Total cost price: ",total);
+    </script>
+</body>
+</html>
