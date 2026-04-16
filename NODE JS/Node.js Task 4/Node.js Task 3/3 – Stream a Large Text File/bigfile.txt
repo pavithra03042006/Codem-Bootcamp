@@ -1,0 +1,13 @@
+This is a large text file.
+
+Node.js is used to build server-side applications.
+Streaming helps to read large files efficiently.
+It does not load the full file at once.
+
+This is the second paragraph.
+We are learning how to stream a text file using fs.createReadStream().
+The file content will be shown in the browser.
+
+This is the third paragraph.
+When the user visits the /stream path,
+the server reads the file and sends it as the response.

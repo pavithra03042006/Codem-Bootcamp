@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Summary</title>
+    <style>
+        .card {
+            border: 1px solid black;
+            padding: 15px;
+            margin:10px;
+            width:200px;
+            display: inline-block;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h2>Dashboard</h2>
+        <div class="card">
+            <h3>Total Users</h3>
+            <p id="totalUsers"></p>
+        </div>
+        <div class="card">
+            <h3>Total Orders</h3>
+            <p id="totalOrders"></p>
+        </div>
+        <div class="card">
+            <h3>Total Revenue</h3>
+            <p id="totalRevenue"></p>
+        </div>
+        <button onclick="addOrder()">Add New Order</button>
+    <script>
+        let users=[1,2,3,4];
+        let orders=[500,1200,800];
+        let revenue=[5000,3000];
+
+        function updateDashboard(){
+            let totalUsers=0;
+            for(let i=0;i<users.length;i++) {
+                totalUsers++;
+            }
+            let totalOrders=0;
+            for(let i=0;i<orders.length;i++){
+                totalOrders++;
+            }
+            let totalRevenue=0;
+            for(let i=0;i<revenue.length;i++) {
+                totalRevenue+=revenue[i];
+            }
+            document.getElementById('totalUsers').innerText=totalUsers;
+            document.getElementById('totalOrders').innerText=totalOrders;
+            document.getElementById('totalRevenue').innerText="Rs."+totalRevenue;
+        }
+        function addOrder(){
+            orders.push(1000);
+            revenue.push(1000);
+            updateDashboard();
+        }
+        updateDashboard();
+</script>
+</body>
+</html>

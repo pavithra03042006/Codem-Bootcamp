@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Price Calculator</title>
+</head>
+<body>
+    <h2>Price Calculator</h2>
+    <div id="output"></div>
+    <script>
+        let prices=[100,200,300];
+        let total=0;
+        for(let i=0;i<prices.length;i++) {
+            total+=prices[i];
+        }
+        let tax=total *0.10;
+        let afterTax=total+tax;
+        let discount=afterTax*0.05;
+        let final=afterTax-discount;
+        document.getElementById('output').innerHTML=
+        "Total: "+total+
+        "<br>Tax: "+tax+
+        "<br>After Tax: " +afterTax+
+        "<br>Discount: " +discount+
+        "<br>Final: " +final;
+    </script>
+</body>
+</html>

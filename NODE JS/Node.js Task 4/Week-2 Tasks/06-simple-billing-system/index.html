@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Billing System</title>
+</head>
+<body>
+    <h2>Simple Billing System</h2>
+    <button onclick="calculateBill(800,false)">Regular</button>
+    <button onclick="calculateBill(2500,true)">Member</button>
+    <script>
+        function calculateBill(billAmount, isMember) {
+            if(billAmount<=0){
+                console.log("Error! Invalid Bill Amount");
+                return;
+            }
+            let discount=0;
+            if(isMember){
+                discount=10;
+            }
+            else if(billAmount>=1000) {
+                discount=5;
+            }
+            else {
+                discount=0;
+            }
+            let finalAmount=billAmount-(billAmount*discount/100);
+            console.log(`Bill Amount: ${billAmount}\nDiscount: ${discount}\nFinal Amount: ${finalAmount}\n`);
+            if(finalAmount>=1500){
+                console.log("free gifts included");
+            }
+        }
+    </script>
+</body>
+</html>

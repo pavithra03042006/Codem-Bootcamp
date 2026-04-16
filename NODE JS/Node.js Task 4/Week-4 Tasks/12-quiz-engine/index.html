@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Engine</title>
+    <style>
+        body {
+            background-color: azure;
+        }
+        button {
+            padding:3px;
+            margin: 5px;
+            background-color:aquamarine;
+        }
+    </style>
+</head>
+<body>
+    <h2>Quiz engine</h2>
+    <div id="quiz"></div>
+    <script>
+        let quiz=[
+            {question: "What is JavaScript?",
+             options: ["Language","Framework","Database"],
+             answer: "Language"
+            },
+            {question: "What keyword declares variable?",
+             options: ["var","loop","print"],
+             answer: "var"
+            }
+        ];
+        let current=0;
+        let score=0;
+        function loadQuestion() {
+            if(current>=quiz.length ){
+                document.getElementById('quiz').innerHTML="Final Score: "+score;
+                return;
+            }
+            let quizz=quiz[current];
+            let html="<h3>" +quizz.question + "</h3>";
+            for(let i=0;i<quizz.options.length;i++) {
+                html+=`<button onclick="checkAnswer('${quizz.options[i]}')">
+                    ${quizz.options[i]}
+                    </button><br>`;
+            }
+            document.getElementById('quiz').innerHTML=html;
+        }
+        function checkAnswer(option) {
+            if(option ===quiz[current].answer){
+                score++;
+            }
+            current++;
+            loadQuestion();
+        }
+        loadQuestion();
+    </script>
+</body>
+</html>

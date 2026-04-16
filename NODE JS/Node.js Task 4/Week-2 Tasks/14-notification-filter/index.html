@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notification Filter</title>
+</head>
+<body>
+    <h2>Notification filter</h2>
+    <button onclick="checkNotification('hello',false)">Normal</button>
+    <button onclick="checkNotification('error',true)">Urgent</button>
+    <script>
+        function checkNotification(message,isUrgent){
+            if(isUrgent){
+                console.log("IMPORTANT:"+ message.toUpperCase());
+            }
+            else {
+                console.log("Normal:"+message);
+            }
+        }
+    </script>
+</body>
+</html>

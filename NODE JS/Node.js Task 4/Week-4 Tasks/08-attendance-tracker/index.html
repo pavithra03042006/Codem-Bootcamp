@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendace Tracker</title>
+    <style>
+        #students {
+            padding: 3px;
+        }
+        button {
+            padding:2px 5px;
+            margin: 4px;
+            background-color:bisque;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+   <h2>Attendace</h2>
+   <div id="students"></div>
+   <p id="count"></p>
+   <script>
+    let students=[
+        {name: 'Ali', present: true},
+        {name: 'Sara', present: true}
+    ];
+    function render() {
+        let divEl=document.getElementById('students');
+        divEl.innerHTML="";
+        let presentCount=0;
+        let absentCount=0;
+        for(let i=0;i<students.length;i++){
+            if(students[i].present) {
+                presentCount++;
+            }
+            else {
+                absentCount++;
+            }
+            divEl.innerHTML+=`
+            ${students[i].name} - ${students[i].present ? "Present" : "Absent"}
+            <button onclick="toggle(${i})">toggle</button><br>
+        `;}
+        document.getElementById('count').innerHTML="Present: "+presentCount+ " | Absent: " +absentCount;
+
+        }
+        function toggle(index) {
+            students[index].present=!students[index].present;
+            render();
+        }
+        render();
+   </script> 
+</body>
+</html>

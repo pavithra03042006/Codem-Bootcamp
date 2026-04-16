@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Callback Function Implementation</title>
+</head>
+<body>
+    <script>
+        function processnumber(num,callback)
+        {
+            return callback(num);
+        }
+
+        function doublenum(num)
+        {
+            return num*2;
+        }
+        function halfnum(num)
+        {
+            return num/2;
+        }
+
+        let doubleresult=processnumber(45,doublenum);
+        let halfresult=processnumber(46,halfnum);
+
+        console.log("Double the number of 45 is :  "+ doubleresult)
+        console.log("Half the number of 46 is : "+ halfresult)
+
+    </script>
+</body>
+</html>

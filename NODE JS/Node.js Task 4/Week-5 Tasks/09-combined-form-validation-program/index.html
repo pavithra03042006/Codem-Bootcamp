@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combined Form Validation Program</title>
+</head>
+<body>
+    <form onsubmit=" return ValidationForm()">
+        <h1>Combined Form Validation</h1>
+        Name: <input type="text" id="name" placeholder="Enter your name:"><br><br>
+        Email: <input type="email" id="email" placeholder="Enter your email:"><br><br>
+        Password: <input type="password" id="password" placeholder="Enter your password:"><br><br>
+        <button type="submit">Submit</button>
+    </form>
+    <script>
+        function ValidationForm() 
+        {
+            let Name=document.getElementById("name").value;
+            let Email=document.getElementById("email").value;
+            let Password=document.getElementById("password").value;
+        let valid=true;
+        if(Name === "")
+        {
+            console.log("Name Field is empty...!");
+            valid=false;
+        }
+        else if(Email === "")
+        {
+            console.log("Email Field is empty...!");
+            valid=false;
+        }
+        else if(Password === "")
+        {
+            console.log("Password Field is empty...!");
+            valid=false;
+        }
+        else if(!Email.includes("@") || !Email.includes("."))
+        {
+            console.log("Invalid Email Format!");
+            valid=false;
+        }
+        else if(Password.length <= 8)
+        {
+            console.log("Password must be at least 8 characters long!");
+            valid=false;
+        }
+        if(valid)
+        {
+            console.log("Form Submitted Successfully...");
+        }
+        
+        return valid;
+
+        }
+    </script>
+    
+</body>
+</html>

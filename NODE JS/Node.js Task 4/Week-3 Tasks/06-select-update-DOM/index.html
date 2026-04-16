@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selecting And Updating Content</title>
+</head>
+<body>
+    <h2 id="title">Task6 DOM manipulation</h2>
+    <p class="text">Selecting element</p>
+    <p class="text">Updating element</p>
+    <script>
+        let titleEl=document.getElementById('title');
+        let multiTextEl=document.getElementsByClassName('text');
+        let firstTextEl=document.querySelector('.text');
+
+        titleEl.textContent= 'updated with dom';
+        titleEl.style.color='blue';
+        title.style.fontSize='20px';
+
+        for(let i=0;i<multiTextEl.length;i++){
+            multiTextEl[i].textContent='changed text';
+            multiTextEl[i].style.backgroundColor= 'yellow';
+        }
+
+        firstTextEl.style.fontWeight= 'bold';
+
+    </script>
+</body>
+</html>

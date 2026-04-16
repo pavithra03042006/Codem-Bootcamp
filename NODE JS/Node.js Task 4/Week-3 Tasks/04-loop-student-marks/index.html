@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Looping through Student Marks</title>
+</head>
+<body>
+    <script>
+        let students={
+            Abi: 99,
+            Abir:40,
+            Abira:70,
+            Abisha:25
+        }
+        let passMark=50;
+        for(let name in students){
+            let mark=students[name];
+            let status=mark>=passMark ? 'Pass' : 'Fail';
+            console.log(`Name: ${name}, Mark: ${mark}, Status: ${status}`);
+        }
+    </script>
+</body>
+</html>

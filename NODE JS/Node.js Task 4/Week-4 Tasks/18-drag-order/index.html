@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag Order Simulator</title>
+    <style>
+        button {
+            padding:3px 5px;
+            margin:3px;
+            background-color: antiquewhite;
+        }
+    </style>
+</head>
+<body>
+    <h2>Order Simulator</h2>
+    <div id="list"></div>
+    <script>
+        let items=["Item A","Item B","Item C","Item D"];
+        function render() {
+            let divEl=document.getElementById('list');
+            divEl.innerHTML="<ul>";
+            for(let i=0;i<items.length;i++) {
+                divEl.innerHTML+=`
+                <li>
+                ${items[i]}
+                <button onclick="moveUp(${i})">Up</button>
+                <button onclick="moveDown(${i})">Down</button>
+                </li>`;
+            }
+            divEl.innerHTML+="</ul>";
+        }
+        function moveUp(i){
+            if(i>0) {
+                [items[i],items[i-1]]=[items[i-1],items[i]];
+                render();
+            }
+        }
+        function moveDown(i) {
+            if(i<items.length-1){
+                [items[i],items[i+1]]=[items[i+1],items[i]]
+                render();
+            }
+        }
+        render();
+    </script>
+</body>
+</html>

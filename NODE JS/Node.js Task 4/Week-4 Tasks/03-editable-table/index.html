@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editable Table</title>
+    <style>
+        body {
+            background-color: beige;
+        }
+        table {
+        border-collapse: collapse;
+        width:60%;
+        margin-top: 20px;
+    }
+    th, td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align:center;
+    }
+    th {
+        background-color:rgb(167, 209, 247);
+    }
+    input {
+        padding: 3px;
+    }
+    button {
+        margin: 3px;
+        background-color: rgb(255, 214, 214);
+        border: 1px solid black;
+        border-radius: 3px;
+    }
+    </style>
+</head>
+<body>
+    
+    <h2>Editable Table</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Email</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+    </table>
+    <script>
+        let users=[
+            {name:'Ali', age: 22, email: "Ali@gmail.com"},
+            {name: 'Sara', age: 25, email: "sara@gmail.com"}
+        ];
+        function render(){
+            let tableBodyEl=document.getElementById('tableBody');
+            tableBodyEl.innerHTML="";
+            for(let i=0;i<users.length;i++){
+                tableBodyEl.innerHTML+=`
+                <tr>
+                    <td id="name-${i}">${users[i].name}</td>
+                    <td id="age-${i}">${users[i].age}</td>
+                    <td id="email-${i}">${users[i].email}</td>
+                    <td>
+                        <button onclick="editUser(${i})">Edit</button>
+                        <button onclick="saveUser(${i})" id="save-${i}" style="display:none;">Save</button>
+                    </td>
+                </tr>`;
+            }
+        }
+        function editUser(index){
+            let nameCellEl=document.getElementById(`name-${index}`);
+            let ageCellEl=document.getElementById(`age-${index}`);
+            nameCellEl.innerHTML=`
+            <input type="text" id="editName-${index}" value="${users[index].name}">`;
+            ageCellEl.innerHTML=`
+            <input type="number" id="editAge-${index}" value="${users[index].age}">`;
+            document.getElementById(`save-${index}`).style.display="inline";
+        }
+        function saveUser(index){
+            let newNameEl=document.getElementById(`editName-${index}`).value;
+            let newAgeEl=document.getElementById(`editAge-${index}`).value;
+            users[index].name=newNameEl;
+            users[index].age=newAgeEl;
+            render();
+        }
+        render();
+    </script>
+</body>
+</html>

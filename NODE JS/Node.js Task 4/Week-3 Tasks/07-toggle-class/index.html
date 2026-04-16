@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle Class on Multiple Elements</title>
+<style>
+    .active{
+        background-color: green;
+        color:white;
+    }
+    #btn {
+        margin-top:5px;
+        margin-bottom: 10px;
+    }
+</style>
+</head>
+<body>
+    <button id="btn">Toggle</button>
+    <div class="division">Division 1</div>
+    <div class="division">Division 2</div>
+    <script>
+        let buttonEl=document.getElementById('btn');
+        let divisionEl=document.getElementsByClassName('division');
+        buttonEl.addEventListener('click', function() {
+            for(let i=0;i<divisionEl.length;i++){
+                divisionEl[i].classList.toggle('active');
+            }
+        });
+
+    </script>
+</body>
+</html>

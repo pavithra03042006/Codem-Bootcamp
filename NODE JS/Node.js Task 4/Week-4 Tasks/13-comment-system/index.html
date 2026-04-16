@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comment System</title>
+    <style>
+        body {
+            background-color: antiquewhite;
+        }
+        input {
+            border: 1px solid black;
+            border-radius: 3px;
+            padding:2px;
+        }
+        div {
+            padding:3px;
+            margin-top: 5px;
+            color:brown;
+        }
+        button {
+            padding:1px 8px;
+            margin:8px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Comment System</h2>
+    <input type="text" id="commentInput">
+    <button onclick="addComment()">Submit</button>
+    <div id="comments"></div>
+    <script>
+        let comments=[];
+        function addComment() {
+            let text=document.getElementById('commentInput').value;
+            if(text!=="") {
+                comments.unshift(text);
+                document.getElementById('commentInput').value="";
+                render();
+            }
+        }
+        function render(){
+            let div=document.getElementById("comments");
+            div.innerHTML="";
+            if(comments.length===0) {
+                div.innerHTML="No comments in the array";
+                return;
+            }
+            for(let i=0;i<comments.length && i<5;i++) {
+                div.innerHTML+=comments[i]+ "<br>";
+            }
+            
+        }
+        render();
+    </script>
+</body>
+</html>
