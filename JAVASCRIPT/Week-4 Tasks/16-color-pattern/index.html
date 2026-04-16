@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Pattern Generator</title>
+    <style>
+        div {
+            padding:2px;
+        }
+        #grid {
+            padding:2px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Color Grid</h2>
+    <div id="grid"></div>
+    <script>
+        let colors=["red","blue","green","yellow"];
+        let gridEl=document.getElementById('grid');
+        let k=0;
+        for(let i=0;i<3;i++) {
+            for(let j=0;j<3;j++) {
+                let box=document.createElement('div');
+                box.style.width="50px";
+                box.style.height="50px";
+                box.style.display="inline-block";
+                box.style.backgroundColor=colors[k%colors.length];
+                gridEl.appendChild(box);
+                k++;
+            }
+            gridEl.appendChild(document.createElement("br"));
+
+        }
+        </script>
+</body>
+</html>

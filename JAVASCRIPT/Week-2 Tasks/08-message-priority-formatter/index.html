@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message Priority Formatter</title>
+</head>
+<body>
+    <h2>Message Priority Formatter</h2>
+    <button onclick="processMessage('Error Occured',false)">Normal Message</button>
+    <button onclick="processMessage('System failed',true)">Urgent Message</button>
+    <script>
+        function processMessage(message,isUrgent) {
+            if(message===''){
+                console.log("Message can't be empty");
+                return;
+            }
+            let hasWarningWord=message.includes('error') || message.includes('fail');
+            let isHighPriority=isUrgent || hasWarningWord;
+            if(isHighPriority) {
+                console.log("IMPORTANT:"+ message.toUpperCase());
+            }
+            else {
+                console.log("INFO:"+ message.toLowerCase());
+            }
+            console.log("High Priority:"+ isHighPriority);
+        }
+    </script>
+</body>
+</html>

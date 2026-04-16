@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task6 Variable Behavior Program</title>
+</head>
+
+<body>
+    <script>
+        // variables declaration
+        var variable1 = 5;
+        let variable2 = 10;
+        const variable3 = 15;
+
+        // reassigning values
+        variable1 = 25;
+        variable2 = 30;
+        // variable3=35;    [const values can't be modified throughout the entire program. If changed, it would be a syntax error]
+
+        // redeclaration of variables
+        var variable1 = 50;
+        // let variable2=60; [syntax error: identifier variable2 has already been declared. let values can't be redeclared in the same scope]
+        // const variable3=70; [syntax error: identifier variable2 has already been declared. const values can't be redeclared in the same scope]
+        console.log("variable1 declared using var(reassigned & redeclared): " + variable1);
+        console.log("variable2 declared using let(reassigned but not redeclared): " + variable2);
+        console.log("variable3 declared using const(neither reassigned nor redeclared): " + variable3);
+    </script>
+</body>
+
+</html>

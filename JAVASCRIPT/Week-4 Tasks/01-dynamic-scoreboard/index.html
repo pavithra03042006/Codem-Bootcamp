@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Scoreboard</title>
+    <style>
+        body {
+            background-color: antiquewhite;
+        }
+        #scoreboard{
+            padding: 3px;
+        }
+        button {
+            margin:3px;
+            background-color: rgb(247, 198, 135);
+            border-radius: 3px;
+        }
+        #status {
+            margin-top:5px;
+            color:brown;
+            font-weight:bold;
+            font-size:large;
+        }
+    </style>
+</head>
+<body>
+    <h2>Dynamic Scoreboard</h2>
+    <div id="scoreboard"></div>
+    <div id="status"></div>
+    <script>
+        let scores=[10,15,8];
+        function render() {
+            let boardEl=document.getElementById('scoreboard');
+            boardEl.innerHTML="";
+            for(let i=0;i<scores.length;i++) {
+                let divEl=document.createElement('div');
+                divEl.innerHTML= `Player ${i+1}: ${scores[i]} <button onclick="increase(${i})">+</button><button onclick="decrease(${i})">-</button>`;
+                boardEl.appendChild(divEl);
+            }
+            let highest=Math.max(...scores);
+            let lowest=Math.min(...scores);
+            let statsEl=document.getElementById('status')
+            statsEl.innerHTML="Highest: "+highest+ " | Lowest: "+lowest;
+        }
+
+        function increase(index) {
+            scores[index]++;
+            render();
+        }
+        function decrease(index) {
+            scores[index]--;
+            render();
+        }
+        render();
+    </script>
+</body>
+</html>

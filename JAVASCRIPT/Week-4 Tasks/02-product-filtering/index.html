@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Filter Product List</title>
+<style>
+    body{
+        background-color: aliceblue;
+        font-size:large;
+    }
+    .labelClass {
+        font-weight:bold;
+    }
+    table {
+        border-collapse: collapse;
+        width:60%;
+        margin-top: 20px;
+    }
+    th, td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align:center;
+    }
+    th {
+        background-color:rgb(167, 209, 247);
+    }
+    input {
+        padding: 3px;
+    }
+    select {
+        padding:3px;
+    }
+
+</style>
+</head>
+<body>
+    <h2>Product Filtering</h2>
+    <div class="filter"></div>
+    <label class="labelClass">Category</label>
+    <select id="category" class="labelClass">
+        <option value="">All</option>
+        <option value="Electronics">Electronics</option>
+        <option value="Clothing">Clothing</option>
+    </select><br><br>
+    <label class="labelClass">Min price:</label>
+    <input type="number" id="minPrice"><br><br>
+    <label class="labelClass">Max Price:</label>
+    <input type="number" id="maxPrice"><br><br>
+    <button class="labelClass" onclick="filterProducts()">Filter</button><br><br>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Category</th>
+            </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+    </table>
+    <p id="message"></p>
+    <script>
+        let products=[
+            {name:"Laptop", price: 50000, category: "Electronics"},
+            {name: "Shirt", price: 1200, category: "Clothing"}
+        ];
+        function displayProducts(list) {
+            let tableBodyEl=document.getElementById('tableBody');
+            let messageEl=document.getElementById('message');
+            tableBodyEl.innerHTML="";
+            if(list.length===0){
+                messageEl.innerHTML="No products found";
+                return;
+            }
+            messageEl.innerHTML="";
+            for(let i=0;i<list.length;i++){
+                let row=`
+                <tr>
+                    <td>${list[i].name}</td>
+                    <td>${list[i].price}</td>
+                    <td>${list[i].category}</td>
+                </tr>`;
+                tableBodyEl.innerHTML+=row;    
+            }
+        }
+        function filterProducts(){
+            let selectedCategoryEl=document.getElementById('category').value;
+            let minEl=document.getElementById('minPrice').value;
+            let maxEl=document.getElementById('maxPrice').value;
+            let filtered=[];
+            for(let i=0;i<products.length;i++){
+                let product=products[i];
+                if((selectedCategoryEl==="" || product.category===selectedCategoryEl) &&(minEl===""||product.price>=minEl) && (maxEl===""||product.price<=maxEl)){
+                filtered.push(product);
+            }
+            }
+            displayProducts(filtered);
+        }
+        displayProducts(products);
+    </script>
+</body>
+</html>

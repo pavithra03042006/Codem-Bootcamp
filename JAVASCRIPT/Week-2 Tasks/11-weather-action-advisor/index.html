@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather action Advisor</title>
+</head>
+<body>
+    <h2>Weather Action Advisor</h2>
+    <button onclick="checkWeather('rainy',24)">Rainy</button>
+    <button onclick="checkWeather('sunny',28)">Sunny</button>
+    <script>
+        function checkWeather(condition,temperature){
+            if(condition==='rainy'){
+                alert("Carry an umbrella");
+            }
+            else if(condition==='sunny' && temperature >30) {
+                alert("Stay hydrated");
+            }
+            else {
+                alert("Have a nice day");
+            }
+        }
+    </script>
+</body>
+</html>

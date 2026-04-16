@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function Modifying in Object</title>
+</head>
+<body>
+    <script>
+    const product={
+        name:'laptop',
+        price:55000,
+        stock:10
+    };
+    function updateProduct(obj){
+        product.price=50000;
+        product.stock=5;
+        return `Product: ${product.name}, Price: ${product.price}, Stock: ${product.stock}`;
+    }
+    let result=updateProduct(product);
+    console.log(result);
+    console.log("Updated Product:", product);
+    </script>
+</body>
+</html>

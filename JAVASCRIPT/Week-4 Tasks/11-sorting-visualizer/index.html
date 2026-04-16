@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorting Visualizer</title>
+    <style>
+        button {
+            padding: 4px;
+            margin-top:10px;
+            
+        }
+    </style>
+</head>
+<body>
+    <h2>Sorting Visualizer</h2>
+    <div id="numbers"></div>
+    <div id="output"></div>
+    <button onclick="startSort()">Start Sorting</button>
+    <script>
+        let numbers=[5,2,4,1,3];
+        function display() {
+            document.getElementById('numbers').innerHTML=numbers.join(' ') +"<br><br>";
+        }
+        function startSort(){
+            let i=0;
+            let j=0;
+            let interval=setInterval(function() {
+                if(i<numbers.length) {
+                    if(j<numbers.length-i-1){
+                        if(numbers[j]>numbers[j+1]){
+                        let temp=numbers[j];
+                        numbers[j]=numbers[j+1];
+                        numbers[j+1]=temp;
+
+                        document.getElementById('output').innerHTML+=numbers.join(" ")+"<br><br>";
+                    }
+                    j++;
+                }
+                else {
+                    j=0;
+                    i++;
+                }
+                display();
+            }
+            else {
+                clearInterval(interval);
+            }
+            },500);
+        }
+        display();
+    </script>
+</body>
+</html>

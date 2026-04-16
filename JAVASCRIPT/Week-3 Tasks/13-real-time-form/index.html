@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Time Form Validation</title>
+    <style>
+        .invalid {
+            border:2px solid red;
+        }
+    </style>
+</head>
+<body>
+    <form id="formId">
+        <input type="text" id="username" placeholder="Username:">
+        <span id="userError"></span><br><br>
+        <input type="email" id="email" placeholder="Email:">
+        <span id="emailError"></span><br><br>
+        <input type="text" id="designation" placeholder="Designation:">
+        <span id="designationError"></span><br><br>
+    </form>
+    <script>
+        let usernameEl=document.getElementById('username');
+        let emailEl=document.getElementById('email');
+        let designationEl=document.getElementById('designation');
+        let userErrorEl=document.getElementById('userError');
+        let emailErrorEl=document.getElementById('emailError');
+        let designationErrorEl=document.getElementById('designationError');
+
+        usernameEl.addEventListener('input', function(){
+            if(usernameEl.value.trim().length<5){
+                usernameEl.classList.add('invalid');
+                userErrorEl.textContent='Minimum 5 characters required!';
+            }
+            else {
+                usernameEl.classList.remove('invalid');
+                userErrorEl.textContent='';
+            }
+        });
+        emailEl.addEventListener('input', function(){
+            if(!emailEl.value.includes('@')){
+                emailEl.classList.add('invalid');
+                emailErrorEl.textContent='Enter valid email';
+            }
+            else {
+                emailEl.classList.remove('invalid');
+                emailErrorEl.textContent='';
+            }
+        });
+        designationEl.addEventListener('input', function(){
+            if(designationEl.value === 'student'){
+                designationEl.classList.add('invalid');
+                designationErrorEl.textContent='Student not applicable';
+            }
+            else {
+                designationEl.classList.remove('invalid');
+                designationErrorEl.textContent='';
+            }
+        });
+        
+    </script>
+</body>
+</html>

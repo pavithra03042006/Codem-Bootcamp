@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attribute Manipulation Based on User Interaction</title>
+<style>
+    .disabledStyle{
+        border-color: red;
+        background-color: rgb(236, 236, 236);
+    }
+</style>
+</head>
+<body>
+    <button id="btn">Toggle</button>
+    <input type="text" id="inputField">
+    <script>
+        let btnEl=document.getElementById('btn');
+        let inputEl=document.getElementById('inputField');
+        btnEl.addEventListener('click', function() {
+            if(inputEl.hasAttribute('disabled')) {
+                inputEl.removeAttribute('disabled');
+                inputEl.classList.remove('disabledStyle')
+                console.log('disabled attribute removed');
+                console.log("Current state:"+ inputEl.hasAttribute('disabled'));
+
+            }
+            else {
+                inputEl.setAttribute('disabled','true');
+                inputEl.classList.add('disabledStyle');
+                console.log('disabled attribute added');
+                console.log("current state:"+ inputEl.hasAttribute('disabled'));
+            }
+        });
+
+    </script>
+</body>
+</html>

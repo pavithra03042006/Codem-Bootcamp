@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation - Password Length Check</title>
+</head>
+<body>
+    <form onsubmit=" return ValidationForm()">
+        <h1>Form Validation - Password Length Check</h1>
+        Password: <input type="password" id="password" placeholder="Enter your password:"><br><br>
+        <button type="submit">Submit</button>
+    </form>
+    <script>
+        function ValidationForm() 
+        {
+            let Password=document.getElementById("password").value;
+        if(Password.length >= 8)
+        {
+            console.log("Password Length is Valid!");
+            return true;
+        }
+        else{
+            console.log("Password Length is Invalid!");
+            return false;
+        }
+
+        }
+    </script>
+    
+</body>
+</html>

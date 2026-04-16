@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function Expressions and Arrow Functions</title>
+</head>
+<body>
+    <script>
+        let getlength=function(str)
+        {
+            return str.length;
+        }
+
+        let squarenum=(num)=>{
+            return num*num;
+        }
+
+        let str='Javascript';
+        let num=56;
+
+        let lengthresult=getlength(str);
+        let squareresult=squarenum(num);
+        
+        console.log(`Length of the ${str} is :`+ lengthresult)
+        console.log(`Square of the ${num} is :`+ squareresult)
+    </script>
+</body>
+</html>

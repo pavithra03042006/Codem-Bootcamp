@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Traversal</title>
+</head>
+<body>
+    <div id="parent">
+        <p id="child">hello world</p>
+        <span>sibling</span>
+    </div>
+    <script>
+        let childEl=document.getElementById('child');
+        childEl.parentElement.style.color='blue';
+        childEl.textContent='Modified child content';
+        childEl.nextElementSibling.style.color='red';
+    </script>
+</body>
+</html>

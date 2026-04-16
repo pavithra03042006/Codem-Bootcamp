@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search + Highlight</title>
+    <style>
+        .highlight {
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+    <h2>Live Search</h2>
+    <input type="text" id="searchInput" placeholder="Type here to search..." onkeyup="searchText()">
+    <ul id="resultList"></ul>
+    <script>
+        let texts=["Javascript","Java","Python","React"];
+        function searchText() {
+            let searchValEl=document.getElementById('searchInput').value.toLowerCase();
+            let resultListEl=document.getElementById('resultList');
+            resultListEl.innerHTML="";
+            let found=false;
+            for(let i=0;i<texts.length;i++){
+                let text=texts[i];
+                let lowerText=text.toLowerCase();
+                if(lowerText.includes(searchValEl)){
+                    let liEl=document.createElement('li');
+                    let highlighted=text.replace(new RegExp(searchValEl,"gi"),match => `<span class="highlight">${match}</span>`);
+                    liEl.innerHTML=highlighted;
+                    resultListEl.appendChild(liEl);
+                    found=true;
+                }
+               
+            
+            }
+             if(!found) {
+                    resultListEl.innerHTML="<li>No result found</li>";
+                }
+        }
+        searchText();
+    </script>
+</body>
+</html>

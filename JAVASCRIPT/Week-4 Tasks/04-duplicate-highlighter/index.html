@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duplicate Highlighter</title>
+    <style>
+        ul {
+            list-style-type:none;
+            padding: 0;
+        }
+        li {
+            padding: 6px;
+            margin:7px;
+            border: 1px solid black;
+        }
+        .duplicate {
+            background-color:aquamarine;
+            color:rgb(196, 6, 6);
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h2>Duplicate Highlighter</h2>
+    <ul id="list"></ul>
+    <script>
+        let items=["apple", "banana", "apple", "mango", "banana","apple"];
+        function render(){
+            let ulEl=document.getElementById('list');
+            ulEl.innerHTML="";
+            for(let i=0;i<items.length;i++) {
+                let count=0;
+                for(let j=0;j<items.length;j++){
+                    if(items[i]===items[j]){
+                        count++;
+                    }
+                }
+                let liEl=document.createElement('li');
+                liEl.textContent=items[i];
+                if(count>1){
+                    liEl.classList.add('duplicate');
+                }
+                ulEl.appendChild(liEl);
+            }
+        }
+        render();
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Form Builder</title>
+    <style>
+        input {
+            margin:5px;
+        }
+        button {
+            padding:3px 6px;
+            margin:10px 0;
+            background-color: antiquewhite;
+            border:2px solid black;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Dynamic Form</h2>
+    <form id="form"></form>
+    <button onclick="submitForm()">Submit</button>
+    <script>
+        let fields=[
+            {type:'text',label:'Name'},
+            {type:'email',label:'Email'}
+        ];
+        let formEl=document.getElementById('form');
+        for(let i=0;i<fields.length;i++) {
+            let label=document.createElement('label');
+            label.textContent=fields[i].label;
+            let input=document.createElement('input');
+            input.type=fields[i].type;
+            input.id='input-'+i;
+            
+            formEl.appendChild(label);
+            formEl.appendChild(input);
+            formEl.appendChild(document.createElement('br'));
+        }
+        function submitForm(){
+            let formData=[];
+            for(let i=0;i<fields.length;i++){
+                let value=document.getElementById('input-'+i).value;
+                formData.push(value);
+            }
+            console.log(formData);
+        }
+    </script>
+</body>
+</html>

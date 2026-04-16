@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Rule Checker</title>
+</head>
+<body>
+    <h2>Password Checker</h2>
+    <input type="password" id="pwd" onkeyup="checkPassword()">
+    <ul id="rules"></ul>
+    <script>
+        let rules=[
+            {rule: "Minimum 8 characters", isPassed: false},
+            {rule: "At least one uppercase letter", isPassed:false},
+            {rule: "At least one number", isPassed:false},
+            {rule: "At least one special character", isPassed:false}
+        ];
+        function checkPassword() {
+            let pwdEl=document.getElementById('pwd').value;
+            rules[0].isPassed=pwdEl.length>=8;
+            rules[1].isPassed=/[A-Z]/.test(pwdEl);
+            rules[2].isPassed=/[0-9]/.test(pwdEl);
+            rules[3].isPassed=/[A-Za-z0-9]/.test(pwd);
+            let ulEl=document.getElementById('rules');
+            ulEl.innerHTML="";
+            for(let i=0;i<rules.length;i++) {
+                ulEl.innerHTML+= `
+                <li style="color: ${rules[i].isPassed ? 'green' : 'red'}">
+                    ${rules[i].rule}
+                    </li>`;
+            }
+        }
+        
+    </script>
+</body>
+</html>
